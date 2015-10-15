@@ -13,6 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void initNavigationView() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nv_main_navigation);
+        ImageView avator = (ImageView) navigationView.findViewById(R.id.avatar);
+        Glide.with(this)
+                .load("http://my.csdn.net/uploads/avatar/8/4/F/1_davyjoneswang.jpg")
+                .fitCenter()
+                .crossFade()
+                .thumbnail(.5f)
+                .into(avator);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
